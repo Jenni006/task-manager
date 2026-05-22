@@ -6,6 +6,9 @@ class UserCreate(BaseModel):
     username: str
     password: str
 
+class LoginRequest(BaseModel):
+    email: str
+    password: str
 
 class UserOut(BaseModel):
     id: int
