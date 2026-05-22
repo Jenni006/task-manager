@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
+from app.database import Base, engine
 
 app = FastAPI(title=settings.APP_NAME)
 
@@ -12,6 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def root():
