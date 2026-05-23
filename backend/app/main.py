@@ -7,9 +7,11 @@ from app.routes import auth, tasks
 
 app = FastAPI(title=settings.APP_NAME)
 
+origins = settings.ALLOWED_ORIGINS.split(",") if settings.ALLOWED_ORIGINS else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
