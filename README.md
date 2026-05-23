@@ -1,10 +1,38 @@
-
 # Task Manager
- 
-A full-stack task management application built with FastAPI and React.
- 
-Built as part of the Python Developer Intern assignment for Weboin Technologies.
- 
+
+A minimal, responsive full-stack task management application built with **FastAPI** and **React**.
+The application includes secure JWT authentication, task CRUD operations, filtering, pagination, Docker support, and live deployment using Railway and Vercel.
+
+Developed as part of the Python Developer Intern assignment for **Weboin Technologies**.
+
+---
+
+## How to Use
+
+### 1. Register
+Go to the app URL and create an account by entering your email, username, and password.
+
+### 2. Login
+Sign in with your email and password. You will be redirected to your task dashboard.
+
+### 3. Add a Task
+Type a task title in the input field at the top of the dashboard and click **Add**. The task appears in your list immediately.
+
+### 4. Complete a Task
+Click the checkbox next to any task to mark it as completed. Completed tasks appear with a strikethrough.
+
+### 5. Filter Tasks
+Use the **All / Active / Completed** toggle at the top right of the dashboard to filter your task list.
+- **All** — shows every task
+- **Active** — shows only incomplete tasks
+- **Completed** — shows only finished tasks
+
+### 6. Delete a Task
+Hover over any task row to reveal the **Delete** button on the right. Click it to permanently remove the task.
+
+### 7. Sign Out
+Click **Sign out** in the top right corner of the navbar to end your session.
+
 ---
  
 ## Live Demo
