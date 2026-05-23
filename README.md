@@ -3,7 +3,7 @@
 A minimal, responsive full-stack task management application built with **FastAPI** and **React**.
 The application includes secure JWT authentication, task CRUD operations, filtering, pagination, Docker support, and live deployment using Railway and Vercel.
 
-Developed as part of the Python Developer Intern assignment for **Weboin Technologies**.
+A project developed for the Python Developer Intern hiring assignment at **Weboin Technologies**.
 
 ---
 
