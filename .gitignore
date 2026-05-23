@@ -6,6 +6,8 @@ backend/*.pyc
 backend/taskmanager.db
 backend/test.db
 
+.vscode/
+
 # Environment
 .env
 backend/.env
