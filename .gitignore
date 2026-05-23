@@ -6,8 +6,6 @@ backend/*.pyc
 backend/taskmanager.db
 backend/test.db
 
-.vscode/
-
 # Environment
 .env
 backend/.env
@@ -16,3 +14,5 @@ frontend/.env
 # Node
 frontend/node_modules/
 frontend/dist/
+
+.vscode/
