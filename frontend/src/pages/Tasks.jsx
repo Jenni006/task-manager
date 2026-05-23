@@ -43,36 +43,35 @@ export default function Tasks() {
   }
 
   const totalPages = Math.ceil(total / limit)
-
-  const activeCount = filter === 'all'
-    ? tasks.filter(t => !t.completed).length
-    : null
+  const remainingCount = tasks.filter(t => !t.completed).length
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      <main className="max-w-2xl mx-auto px-4 py-8">
+      <main className="max-w-2xl mx-auto px-4 py-10">
 
-        <div className="flex items-center justify-between mb-6">
+        {/* Header row */}
+        <div className="flex items-center justify-between mb-5">
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">My Tasks</h2>
-            {activeCount !== null && (
-              <p className="text-xs text-gray-400 mt-0.5">
-                {activeCount} remaining
-              </p>
-            )}
+            <h2 className="text-base font-semibold text-gray-800">My Tasks</h2>
+            <p className="text-xs text-gray-400 mt-0.5">
+              {total === 0
+                ? 'No tasks yet'
+                : `${remainingCount} of ${total} remaining`}
+            </p>
           </div>
 
-          <div className="flex gap-1">
+          {/* Filter tabs */}
+          <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
             {['all', 'active', 'completed'].map((f) => (
               <button
                 key={f}
                 onClick={() => { setFilter(f); setPage(1) }}
-                className={`text-xs px-3 py-1.5 rounded transition-colors capitalize ${
+                className={`text-xs px-3 py-1.5 rounded-md transition-colors capitalize ${
                   filter === f
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-500 hover:bg-gray-100'
+                    ? 'bg-white text-gray-800 shadow-sm font-medium'
+                    : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 {f}
@@ -81,28 +80,32 @@ export default function Tasks() {
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-lg px-4 py-4">
+        {/* Main card */}
+        <div className="bg-white border border-gray-200 rounded-xl px-5 py-5 shadow-sm">
           <TaskForm onTaskCreated={handleTaskCreated} />
 
+          <div className="border-t border-gray-100 -mx-5 mb-1" />
+
           {error && (
-            <p className="text-sm text-red-600 mb-3">{error}</p>
+            <p className="text-sm text-red-500 mt-3">{error}</p>
           )}
 
           {loading ? (
-            <div className="text-center py-12">
-              <p className="text-sm text-gray-400">Loading...</p>
+            <div className="text-center py-14">
+              <p className="text-sm text-gray-300">Loading...</p>
             </div>
           ) : (
             <TaskList tasks={tasks} onTasksChanged={loadTasks} />
           )}
         </div>
 
+        {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center justify-between mt-4 px-1">
             <button
               onClick={() => setPage(p => p - 1)}
               disabled={page === 1}
-              className="text-xs text-gray-500 hover:text-gray-800 disabled:opacity-30 transition-colors"
+              className="text-xs text-gray-400 hover:text-gray-700 disabled:opacity-30 transition-colors"
             >
               ← Previous
             </button>
@@ -112,7 +115,7 @@ export default function Tasks() {
             <button
               onClick={() => setPage(p => p + 1)}
               disabled={page === totalPages}
-              className="text-xs text-gray-500 hover:text-gray-800 disabled:opacity-30 transition-colors"
+              className="text-xs text-gray-400 hover:text-gray-700 disabled:opacity-30 transition-colors"
             >
               Next →
             </button>

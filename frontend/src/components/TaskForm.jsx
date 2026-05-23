@@ -28,18 +28,18 @@ export default function TaskForm({ onTaskCreated }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Add a new task..."
-          className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+          className="flex-1 border border-gray-200 rounded-md px-3 py-2 text-sm text-gray-700 placeholder-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:border-blue-400 transition"
         />
         <button
           type="submit"
           disabled={loading || !title.trim()}
-          className="bg-blue-600 text-white text-sm rounded px-4 py-2 hover:bg-blue-700 disabled:opacity-50 transition-colors"
+          className="bg-blue-600 text-white text-sm rounded px-4 py-2 hover:bg-blue-700 disabled:opacity-40 transition-colors"
         >
           {loading ? 'Adding...' : 'Add'}
         </button>
       </form>
       {error && (
-        <p className="text-xs text-red-600 mt-1">{error}</p>
+        <p className="text-xs text-red-600 mt-1.5">{error}</p>
       )}
     </div>
   )

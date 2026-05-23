@@ -21,8 +21,8 @@ export default function TaskList({ tasks, onTasksChanged }) {
 
   if (tasks.length === 0) {
     return (
-      <div className="text-center py-12">
-        <p className="text-sm text-gray-400">No tasks yet. Add one above.</p>
+      <div className="text-center py-16">
+        <p className="text-sm text-gray-300">No tasks here.</p>
       </div>
     )
   }
@@ -38,12 +38,12 @@ export default function TaskList({ tasks, onTasksChanged }) {
             type="checkbox"
             checked={task.completed}
             onChange={() => handleToggle(task)}
-            className="accent-blue-600 w-4 h-4 cursor-pointer"
+            className="accent-blue-600 w-4 h-4 cursor-pointer shrink-0"
           />
           <span
-            className={`flex-1 text-sm ${
+            className={`flex-1 text-sm leading-snug ${
               task.completed
-                ? 'line-through text-gray-400'
+                ? 'line-through text-gray-300'
                 : 'text-gray-700'
             }`}
           >
@@ -51,7 +51,7 @@ export default function TaskList({ tasks, onTasksChanged }) {
           </span>
           <button
             onClick={() => handleDelete(task.id)}
-            className="text-xs text-gray-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all"
+            className="text-xs text-gray-300 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all ml-2 shrink-0"
           >
             Delete
           </button>
